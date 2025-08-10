@@ -23,13 +23,16 @@ This API allows users to manage and search for products. It provides endpoints f
 
 ## Installation
 
-1. Clone the repository:
+1. **Java 21 Requirement**: Ensure you have Java 21 installed on your system.
+
+2.Clone the repository:
 
    ```bash
    git clone https://github.com/thaliaberger/products-management-api.git
    cd products-management-api
+   ```
    
-2. Build and run the application:
+3. Build and run the application:
 
    ```bash
    ./gradlew bootRun
@@ -39,7 +42,7 @@ This API allows users to manage and search for products. It provides endpoints f
 
 ### Search Products
 
-Endpoint: `/api/products/search`
+Endpoint: `/api/products?name={name}&minPrice={minPrice}&maxPrice={maxPrice}`
 
 Method: `GET`
 
@@ -47,13 +50,14 @@ Parameters:
 - `name`: The name of the product to search for.
 - `minPrice`: The minimum price of the product to search for.
 - `maxPrice`: The maximum price of the product to search for.
+- `Pageable`: Pagination parameters for the search results.'
 
 Response:
-- An array of product objects that match the search criteria.
+- A content object containing an array of product objects that match the search criteria and pagination information.
 
 ### Save Multiple Products
 
-Endpoint: `/api/products`
+Endpoint: `/api/products/saveAll`
 
 Method: `POST`
 
@@ -61,16 +65,27 @@ Request Body:
 - An array of product objects to save.
 
 Response:
-- An array of saved product objects.
+- A map with the number of saved products and duplicate products (that were ignored).
 
 ### Save a Single Product           
 
-Endpoint: `/api/products`
+Endpoint: `/api/products/save`
 
 Method: `POST`
 
 Request Body:
 - A single product object to save.
+
+```bash
+{
+    "product": "name",
+    "quantity": 1,
+    "price": "$0.00",
+    "type": "3XL",
+    "industry": "Industries",
+    "origin": "LA"
+}
+```
 
 Response:
 - The saved product object.
