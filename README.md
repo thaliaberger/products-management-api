@@ -50,7 +50,7 @@ Parameters:
 - `name`: The name of the product to search for.
 - `minPrice`: The minimum price of the product to search for.
 - `maxPrice`: The maximum price of the product to search for.
-- `Pageable`: Pagination parameters for the search results.'
+- `Pageable`: Pagination parameters for the search results.
 
 Response:
 - A content object containing an array of product objects that match the search criteria and pagination information.
