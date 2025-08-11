@@ -25,7 +25,7 @@ This API allows users to manage and search for products. It provides endpoints f
 
 1. **Java 21 Requirement**: Ensure you have Java 21 installed on your system.
 
-2.Clone the repository:
+2. Clone the repository:
 
    ```bash
    git clone https://github.com/thaliaberger/products-management-api.git
